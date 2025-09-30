@@ -24,8 +24,13 @@ Siga os passos abaixo para rodar o projeto localmente:
 
 1.  **Clone o repositório:**
     ```bash
+<<<<<<< HEAD
     git clone https://github.com/Humberto-Henrique-Medeiros/api-clientes.git
     cd api-clientes
+=======
+git clone https://github.com/Humberto-Henrique-Medeiros/api-clientes.git
+cd api-clientes
+>>>>>>> d28572076077c7c53c28ee1c8ceaafe61b6a5f67
     ```
 
 2.  **Instale as dependências:**
