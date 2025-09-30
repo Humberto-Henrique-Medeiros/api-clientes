@@ -1,0 +1,31 @@
+# docker-compose.yml
+
+# Define a versão do Docker Compose que estamos usando. Omitir é o padrão mais moderno.
+services:
+  # Define um "serviço" ou contêiner que queremos rodar. Vamos chamá-lo de "postgres".
+  postgres:
+    # Diz ao Docker para usar a imagem oficial do PostgreSQL, na versão 14-alpine (que é mais leve).
+    image: postgres:14-alpine
+
+    # Dá um nome fácil de identificar ao nosso contêiner.
+    container_name: bd_api_clientes
+
+    # Garante que, se o contêiner parar por algum motivo, ele reiniciará automaticamente.
+    restart: always
+
+    # Define as variáveis de ambiente (configurações) dentro do contêiner.
+    environment:
+      POSTGRES_USER: root             # O nome de usuário para acessar o banco.
+      POSTGRES_PASSWORD: root         # A senha para o banco de dados.
+      POSTGRES_DB: clientes_db      # O nome do banco de dados que será criado.
+
+    # Mapeia as portas. A porta 5432 do seu computador (à esquerda)
+    # será redirecionada para a porta 5432 de dentro do contêiner (à direita).
+    ports:
+      - "5432:5432"
+
+    # Cria um "volume". Isso garante que os dados do seu banco de dados 
+    # sejam salvos em uma pasta no seu computador (`./postgres_data`), 
+    # para que não se percam se o contêiner for removido.
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data

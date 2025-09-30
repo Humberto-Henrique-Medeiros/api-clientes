@@ -1,0 +1,10 @@
+# Arquivo .gitignore
+
+# Ignorar a pasta de dependências do Node.js
+node_modules/
+
+# Ignorar o arquivo com nossas senhas e segredos
+.env
+
+# Ignorar a pasta com os dados do banco de dados do Docker
+postgres_data/
